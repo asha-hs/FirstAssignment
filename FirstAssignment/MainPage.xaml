@@ -9,6 +9,60 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <RelativePanel Grid.Row="0">
+            <Button Name="HomeButton" 
+                    Width="45" 
+                    Height="45"
+                    Content="&#xE700;"
+                    FontFamily="Segoe MDL2 Assets"
+                    Click="HomeButton_Click"></Button>
+            <Button Name="BackButton" 
+                    Width="45"
+                    Height="45"
+                    Content="&#xE0A6;"
+                    FontFamily="Segoe MDL2 Assets"
+                    Click="BackButton_Click"
+                    RelativePanel.RightOf="HomeButton"></Button>
+            <TextBlock Name="CategoryTextBlock" 
+                       Text="All Music" 
+                       FontSize="25" 
+                       RelativePanel.RightOf="BackButton"></TextBlock>
+        </RelativePanel>
+        <SplitView Grid.Row="1"
+                    Name="MusicSplitView"
+                    DisplayMode="CompactOverlay" 
+                    CompactPaneLength="45"
+                    OpenPaneLength="200">
+            <SplitView.Pane>
+                <ListView Name="MenuItemListView"
+                          IsItemClickEnabled="True"></ListView>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        
+                    </Grid.RowDefinitions>
+                    <MediaElement Name="MusicLibraryMediaElement"></MediaElement>
+                    
+                    <GridView Grid.Row="0" Name="MusicGridView" IsItemClickEnabled="True"
+                              ItemClick="MusicGridView_ItemClick"
+                              SelectionMode="None">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Name="MusicImage"
+                                       Height="112"
+                                       Width="101"
+                                       ></Image>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>

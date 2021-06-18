@@ -25,6 +25,22 @@ namespace FirstAssignment
         public MainPage()
         {
             this.InitializeComponent();
+            BackButton.Visibility = Visibility.Collapsed;
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MusicGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }
