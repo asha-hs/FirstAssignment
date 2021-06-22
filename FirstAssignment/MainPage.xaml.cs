@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstAssignment.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,8 +25,11 @@ namespace FirstAssignment
     {
         public MainPage()
         {
+            private.
             this.InitializeComponent();
+            SoundManager.GetAllSongs();
             BackButton.Visibility = Visibility.Collapsed;
+            
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)

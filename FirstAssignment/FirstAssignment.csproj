@@ -122,6 +122,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Song.cs" />
+    <Compile Include="Model\SongManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -130,12 +132,12 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Cover Art\Dee Yan-Key Cover Art.jpg" />
-    <Content Include="Assets\Cover Art\Prigione Eterna Cover Art.jpg" />
-    <Content Include="Assets\Cover Art\Serge Quadrado Cover Art.jpg" />
-    <Content Include="Assets\Song Files\Dee Yan-Key - Allegretto assai.mp3" />
-    <Content Include="Assets\Song Files\Prigione Eterna - Paranoia.mp3.mp3" />
-    <Content Include="Assets\Song Files\Serge Quadrado - One Love.mp3" />
+    <Content Include="Assets\Cover Art\Classical\Dee Yan-Key Cover Art.jpg" />
+    <Content Include="Assets\Cover Art\Rock\Prigione Eterna Cover Art.jpg" />
+    <Content Include="Assets\Cover Art\Pop\Serge Quadrado Cover Art.jpg" />
+    <Content Include="Assets\Song Files\Classical\Dee Yan-Key - Allegretto assai.mp3" />
+    <Content Include="Assets\Song Files\Rock\Prigione Eterna - Paranoia.mp3.mp3" />
+    <Content Include="Assets\Song Files\Pop\Serge Quadrado - One Love.mp3" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -160,6 +162,7 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
