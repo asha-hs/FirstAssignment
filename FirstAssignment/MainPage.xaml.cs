@@ -1,6 +1,7 @@
 ﻿using FirstAssignment.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,11 +24,13 @@ namespace FirstAssignment
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ObservableCollection<Song> Songs;
         public MainPage()
         {
-            private.
+            
             this.InitializeComponent();
-            SoundManager.GetAllSongs();
+            Songs = new ObservableCollection<Song>();
+            SoundManager.GetAllSongs(Songs);
             BackButton.Visibility = Visibility.Collapsed;
             
         }

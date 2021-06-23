@@ -19,20 +19,20 @@ namespace FirstAssignment.Model
         }
     var allSongs = getSongs();
     var filteredSongs = new List<Song>();
-   
 
-var filteredSongs = allSongs.Where(song => SongGenre == category).ToList();
+
+    var filteredSongs = allSongs.Where(song => SongGenre == category).ToList();
     songs.Clear();
 allSongs.ForEach(song => Songs.Add(song));
-private List<Song> getSongs()
+private static List<Song> getSongs()
 
-        {
-            var songs = new List<Song>();
-            songs.Add(new Song("One Love",SongGenre.Pop));
-            songs.Add(new Song("Allegretto Assai", SongGenre.Classical));
-            songs.Add(new Song("Prigione Eterna , SongGenre.Classical));
+    {
+        var songs = new List<Song>();
+        songs.Add(new Song("One Love", SongGenre.Pop));
+        songs.Add(new Song("Allegretto Assai", SongGenre.Classical));
+        songs.Add(new Song("Prigione Eterna , SongGenre.Classical));
 
             return songs;
- 
 
-        }
+
+    } }
