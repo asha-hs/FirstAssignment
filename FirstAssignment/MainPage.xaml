@@ -39,7 +39,25 @@
                     OpenPaneLength="200">
             <SplitView.Pane>
                 <ListView Name="MenuItemListView"
-                          IsItemClickEnabled="True"></ListView>
+                          IsItemClickEnabled="True"
+                    ItemClick= "MenuItemsListView_ItemClick"
+                          ItemsSource="{x:Bind MenuItems}"
+                          >
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model.MenuItem">
+                            <StackPanel Orientation = "Horizontal">
+                                <Image Height="35"
+                                       Width="35"
+                                       Margin="-10,10,0,10"
+                                       Source="{x:Bind IconFile}" />
+                                <TextBlock FontSize="18"
+                                           Margin="10,0,0,0"
+                                           VerticalAlignment="Center"
+                                           Text="{x:Bind SongGenre}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>
@@ -59,7 +77,7 @@
                                 <Image Name="MusicImage"
                                        Height="112"
                                        Width="101"
-                                       Source=" {x:Bind CoverArt}";
+                                       Source=" {x:Bind CoverArt}"
                                        ></Image>
                             </DataTemplate>
                         </GridView.ItemTemplate>
