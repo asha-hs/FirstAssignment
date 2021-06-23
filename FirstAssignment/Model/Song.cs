@@ -8,6 +8,7 @@ namespace FirstAssignment.Model
 {
 
     public enum SongGenre
+    { 
         Classical,
         Rock,
         Pop,
@@ -24,7 +25,7 @@ namespace FirstAssignment.Model
         SongTitle = name;
         SongGenre = category;
         AudioFile = "/Assets/SongFiles/{category}/{name}.mp3";
-        ImageFile = "/Assets/Cover Art/{ category}/{name}.jpg"";
+        ImageFile = "/Assets/Cover Art/{ category}/{name}.jpg";
     }
      
     }

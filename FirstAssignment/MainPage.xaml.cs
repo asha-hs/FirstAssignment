@@ -25,6 +25,7 @@ namespace FirstAssignment
     public sealed partial class MainPage : Page
     {
         private ObservableCollection<Song> Songs;
+        private List<MenuItems> MenuItems;
         public MainPage()
         {
             
@@ -35,6 +36,7 @@ namespace FirstAssignment
             
         }
 
+        MenuItems = new List<MenuItem>
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
 

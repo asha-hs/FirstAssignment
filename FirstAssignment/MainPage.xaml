@@ -48,15 +48,18 @@
                         
                     </Grid.RowDefinitions>
                     <MediaElement Name="MusicLibraryMediaElement"></MediaElement>
-                    
+
                     <GridView Grid.Row="0" Name="MusicGridView" IsItemClickEnabled="True"
                               ItemClick="MusicGridView_ItemClick"
-                              SelectionMode="None">
+                              SelectionMode="None"
+                              ItemsSource="{x: bind Songs} ">
+                        >
                         <GridView.ItemTemplate>
                             <DataTemplate>
                                 <Image Name="MusicImage"
                                        Height="112"
                                        Width="101"
+                                       Source=" {x:Bind CoverArt}";
                                        ></Image>
                             </DataTemplate>
                         </GridView.ItemTemplate>
