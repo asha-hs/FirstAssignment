@@ -24,32 +24,77 @@ namespace FirstAssignment
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private ObservableCollection<Song> Songs;
-        private List<MenuItems> MenuItems;
+        private ObservableCollection<Music> Songs;
+        private List<LeftMenuItem> LeftMenuItems;
         public MainPage()
         {
-            
-            this.InitializeComponent();
-            Songs = new ObservableCollection<Song>();
-            SoundManager.GetAllSongs(Songs);
-            BackButton.Visibility = Visibility.Collapsed;
-            
-        }
 
-        MenuItems = new List<MenuItem>
+            this.InitializeComponent();
+            BackButton.Visibility = Visibility.Collapsed;
+            Songs = new ObservableCollection<Music>();
+            MusicManager.GetAllSongs(Songs);
+
+
+        
+
+        LeftMenuItems = new List<LeftMenuItem>
+            {
+            new LeftMenuItem
+
+            { 
+            Genre = MusicGenre.Classical,
+            IconFile = "/Assets/Icons/classical.png"
+            },
+    new LeftMenuItem
+        {
+        Genre = MusicGenre.Jazz,
+        IconFile = "Assets/Icons/jazz.png"
+        },
+new LeftMenuItem
+{
+    Genre = MusicGenre.Pop,
+    IconFile = "Assets/Icons/pop.png"
+
+},
+
+new LeftMenuItem
+{
+    Genre = MusicGenre.Rock,
+    IconFile= "Assets/Icons/rock.png"
+}
+
+};
+
+}
+
+
+
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-
+    MusicSplitView.IsPaneOpen = !MusicSplitView.IsPaneOpen;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+    MusicManager.GetAllSongs(Songs);
+    BackButton.Visibility = Visibility.Collapsed;
+    CategoryTextBlock.Text = "All Music";
+
+
 
         }
 
         private void MusicGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+    var song = (Music)e.ClickedItem;
+    MusicLibraryMediaElement.Source = new Uri(this.BaseUri, song.AudioFile);
         }
+private void MenuItemListview_ItemClick(object sender, ItemClickEventArgs e)
+{
+    var menuItem = (LeftMenuItem) e.ClickedItem;
+    MusicManager.GetAllSongsByGenre(Songs, menuItem.Genre);
+    BackButton.Visibility = Visibility.Visible;
+    CategoryTextBlock.Text = menuItem.Genre.ToString();
     }
+}
 }

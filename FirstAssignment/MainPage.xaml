@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -30,21 +30,21 @@
             <TextBlock Name="CategoryTextBlock" 
                        Text="All Music" 
                        FontSize="25" 
-                       RelativePanel.RightOf="BackButton"></TextBlock>
+                       RelativePanel.RightOf="BackButton">
+                Margin= "10,0,0,0"> </TextBlock>
         </RelativePanel>
         <SplitView Grid.Row="1"
                     Name="MusicSplitView"
-                    DisplayMode="CompactOverlay" 
+                    DisplayMode="CompactInline" 
                     CompactPaneLength="45"
                     OpenPaneLength="200">
             <SplitView.Pane>
                 <ListView Name="MenuItemListView"
                           IsItemClickEnabled="True"
-                    ItemClick= "MenuItemsListView_ItemClick"
-                          ItemsSource="{x:Bind MenuItems}"
-                          >
+                    ItemClick= "MenuItemListview_ItemClick"
+                          ItemsSource="{x:Bind LeftMenuItems}">
                     <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="model.MenuItem">
+                        <DataTemplate x:DataType="model:LeftMenuItem">
                             <StackPanel Orientation = "Horizontal">
                                 <Image Height="35"
                                        Width="35"
@@ -53,7 +53,7 @@
                                 <TextBlock FontSize="18"
                                            Margin="10,0,0,0"
                                            VerticalAlignment="Center"
-                                           Text="{x:Bind SongGenre}" />
+                                           Text="{x:Bind Genre}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -63,17 +63,17 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
-                        
-                    </Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
                     <MediaElement Name="MusicLibraryMediaElement"></MediaElement>
-
-                    <GridView Grid.Row="0" Name="MusicGridView" IsItemClickEnabled="True"
+                    <Button>="StopButton"Grid.Row="0"Content="Stop"</Button>
+                                <GridView Grid.Row="1" Name="MusicGridView" IsItemClickEnabled="True"
                               ItemClick="MusicGridView_ItemClick"
                               SelectionMode="None"
-                              ItemsSource="{x: bind Songs} ">
-                        >
+                              ItemsSource="{x:Bind Songs}">
+                        
                         <GridView.ItemTemplate>
-                            <DataTemplate>
+                            <DataTemplate x:DataType="model.Music">
                                 <Image Name="MusicImage"
                                        Height="112"
                                        Width="101"
