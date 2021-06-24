@@ -122,6 +122,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\LeftMenuItem.cs" />
+    <Compile Include="Model\Music.cs" />
+    <Compile Include="Model\MusicManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -130,12 +133,24 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Cover Art\Dee Yan-Key Cover Art.jpg" />
-    <Content Include="Assets\Cover Art\Prigione Eterna Cover Art.jpg" />
-    <Content Include="Assets\Cover Art\Serge Quadrado Cover Art.jpg" />
-    <Content Include="Assets\Song Files\Dee Yan-Key - Allegretto assai.mp3" />
-    <Content Include="Assets\Song Files\Prigione Eterna - Paranoia.mp3.mp3" />
-    <Content Include="Assets\Song Files\Serge Quadrado - One Love.mp3" />
+    <Content Include="Assets\CoverArt\Jazz\Dee-Yan-Key.jpg" />
+    <Content Include="Assets\CoverArt\Pop\harry-potter4.jpg" />
+    <Content Include="Assets\CoverArt\Pop\harry-potter3.jpg" />
+    <Content Include="Assets\CoverArt\Classical\harry-potter2.jpg" />
+    <Content Include="Assets\CoverArt\Classical\harry-potter1.jpg" />
+    <Content Include="Assets\CoverArt\Rock\Prigione-Eterna.jpg" />
+    <Content Include="Assets\CoverArt\Rock\Serge-Quadrado.jpg" />
+    <Content Include="Assets\Icons\jazz.png" />
+    <Content Include="Assets\Icons\classical.png" />
+    <Content Include="Assets\Icons\pop.png" />
+    <Content Include="Assets\Icons\rock.png" />
+    <Content Include="Assets\SongFiles\Classical\harry-potter1.mp3" />
+    <Content Include="Assets\SongFiles\Classical\harry-potter2.mp3" />
+    <Content Include="Assets\SongFiles\Pop\harry-potter3.mp3" />
+    <Content Include="Assets\SongFiles\Pop\harry-potter4.mp3" />
+    <Content Include="Assets\SongFiles\Jazz\Dee-Yan-Key.mp3" />
+    <Content Include="Assets\SongFiles\Rock\Prigione-Eterna.mp3" />
+    <Content Include="Assets\SongFiles\Rock\Serge-Quadrado.mp3" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -160,6 +175,7 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

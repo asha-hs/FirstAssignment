@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FirstAssignment"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:model="using:FirstAssignment.Model"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -30,33 +30,54 @@
             <TextBlock Name="CategoryTextBlock" 
                        Text="All Music" 
                        FontSize="25" 
-                       RelativePanel.RightOf="BackButton"></TextBlock>
+                       RelativePanel.RightOf="BackButton"
+                       Margin="10,0,0,0"></TextBlock>
         </RelativePanel>
         <SplitView Grid.Row="1"
                     Name="MusicSplitView"
-                    DisplayMode="CompactOverlay" 
+                    DisplayMode="CompactInline" 
                     CompactPaneLength="45"
                     OpenPaneLength="200">
             <SplitView.Pane>
                 <ListView Name="MenuItemListView"
-                          IsItemClickEnabled="True"></ListView>
+                          IsItemClickEnabled="True"
+                          ItemClick="MenuItemListView_ItemClick"
+                          ItemsSource="{x:Bind LeftMenuItems}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:LeftMenuItem">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="35"
+                                       Width="35"
+                                       Margin="-10,10,0,10"
+                                       Source="{x:Bind IconFile}"/>
+                                <TextBlock FontSize="18"
+                                           Margin="10,10,0,0"
+                                           VerticalAlignment="Center"
+                                           Text="{x:Bind Genre}"
+                                           />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
-                        
+                        <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
                     <MediaElement Name="MusicLibraryMediaElement"></MediaElement>
-                    
-                    <GridView Grid.Row="0" Name="MusicGridView" IsItemClickEnabled="True"
+                    <Button Name="StopButton" Grid.Row="0" Content="Stop"></Button>
+                    <GridView Grid.Row="1" Name="MusicGridView" IsItemClickEnabled="True"
                               ItemClick="MusicGridView_ItemClick"
-                              SelectionMode="None">
+                              SelectionMode="None"
+                              ItemsSource="{x:Bind Songs}">
                         <GridView.ItemTemplate>
-                            <DataTemplate>
+                            <DataTemplate x:DataType="model:Music">
                                 <Image Name="MusicImage"
                                        Height="112"
                                        Width="101"
+                                       Source="{x:Bind CoverArtFile}"
                                        ></Image>
                             </DataTemplate>
                         </GridView.ItemTemplate>
