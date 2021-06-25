@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FirstAssignment"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:model="using:FirstAssignment.Model"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
@@ -66,18 +66,18 @@
                         <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
                     <MediaElement Name="MusicLibraryMediaElement"></MediaElement>
-                    <Button>="StopButton"Grid.Row="0"Content="Stop"</Button>
-                                <GridView Grid.Row="1" Name="MusicGridView" IsItemClickEnabled="True"
+                    <Button Name="StopButton" Grid.Row="0" Content="Stop"></Button>
+                        <GridView Grid.Row="1" Name="MusicGridView" IsItemClickEnabled="True"
                               ItemClick="MusicGridView_ItemClick"
                               SelectionMode="None"
                               ItemsSource="{x:Bind Songs}">
                         
                         <GridView.ItemTemplate>
-                            <DataTemplate x:DataType="model.Music">
+                            <DataTemplate x:DataType="model:Music">
                                 <Image Name="MusicImage"
                                        Height="112"
                                        Width="101"
-                                       Source=" {x:Bind CoverArt}"
+                                       Source="{x:Bind CoverArt}"
                                        ></Image>
                             </DataTemplate>
                         </GridView.ItemTemplate>

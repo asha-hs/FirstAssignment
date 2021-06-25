@@ -21,7 +21,7 @@ namespace FirstAssignment.Model
     {
     public string Name { get; set; }
     public MusicGenre Genre { get; set; }
-    public string CoverArtFile { get; set; }
+    public string CoverArt { get; set; }
     public string AudioFile { get; set; }
 
     public string Artist { get; set; }
@@ -31,7 +31,7 @@ namespace FirstAssignment.Model
     {
         Name = name;
         Genre = genre;
-        CoverArtFile = $"/Assets/CoverArt/{genre}/{name}.jpg";
+        CoverArt = $"/Assets/CoverArt/{genre}/{name}.jpg";
         AudioFile = $"/Assets/SongFiles/{genre}/{name}.mp3";
         
     }
