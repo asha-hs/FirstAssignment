@@ -30,7 +30,7 @@
             <TextBlock Name="CategoryTextBlock" 
                        Text="All Music" 
                        FontSize="25" 
-                       RelativePanel.RightOf="BackButton">
+                       RelativePanel.RightOf="BackButton"
                 Margin= "10,0,0,0"> </TextBlock>
         </RelativePanel>
         <SplitView Grid.Row="1"
