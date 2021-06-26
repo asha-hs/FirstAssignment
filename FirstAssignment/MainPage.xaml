@@ -62,11 +62,14 @@
             <SplitView.Content>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto">
+                       
+                        </RowDefinition>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
                     <MediaElement Name="MusicLibraryMediaElement"></MediaElement>
-                    <Button Name="StopButton" Grid.Row="0" Content="Stop"></Button>
+                    <Button Name="StopButton" Grid.Row="0" Content="Stop" Click="StopButton_Click"></Button>
                         <GridView Grid.Row="1" Name="MusicGridView" IsItemClickEnabled="True"
                               ItemClick="MusicGridView_ItemClick"
                               SelectionMode="None"
@@ -82,6 +85,8 @@
                             </DataTemplate>
                         </GridView.ItemTemplate>
                     </GridView>
+                    <Button Name="AddSongButton" Content="Add Song"
+                            Click="AddSongButton_Click" Grid.Row="2" HorizontalAlignment="Center"/>
                 </Grid>
             </SplitView.Content>
         </SplitView>

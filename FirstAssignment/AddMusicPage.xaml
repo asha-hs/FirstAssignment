@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="FirstAssignment.AddMusicPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FirstAssignment"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Add Music" Grid.Row="0" FontSize="20"/>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Enter Music details"/>
+
+            <TextBox x:Name="TitleInput"
+                     Header="Enter Music title:" PlaceholderText="Title"
+                     Width="300" HorizontalAlignment="Left"
+                     Margin="0,10,0,0"/>
+
+
+            <TextBox x:Name="AlbumInput"
+                 Header="Music Album"
+                 PlaceholderText="Album"
+                 Width="300"
+                 HorizontalAlignment="Left"
+                 Margin="0,10,0,0"
+                 />
+            <TextBox x:Name="ArtistInput"
+                 Header="Artist"
+                 PlaceholderText="Artist"
+                 Width="300"
+                 HorizontalAlignment="Left" Margin="0,10,0,0"/>
+
+            <TextBlock Name="ErrorMessageText" Text="" Margin="0,10,0,0"/>
+            <Button Content="Save" VerticalAlignment="Bottom" Margin="10,20,0,0" />
+
+        </StackPanel>
+    </Grid>
+</Page>

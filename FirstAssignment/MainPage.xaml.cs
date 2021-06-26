@@ -96,5 +96,15 @@ private void MenuItemListview_ItemClick(object sender, ItemClickEventArgs e)
     BackButton.Visibility = Visibility.Visible;
     CategoryTextBlock.Text = menuItem.Genre.ToString();
     }
-}
+
+        private void StopButton_Click(object sender, RoutedEventArgs e)
+        {
+            MusicLibraryMediaElement.Stop();
+        }
+
+        private void AddSongButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddMusicPage));
+        }
+    }
 }
