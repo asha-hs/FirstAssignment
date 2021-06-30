@@ -17,6 +17,7 @@ namespace FirstAssignment.Model
         Country,
         Classical
 }
+    
   public class Music
     {
     public string Name { get; set; }
