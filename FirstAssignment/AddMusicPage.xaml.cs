@@ -10,6 +10,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -54,24 +55,34 @@ namespace FirstAssignment
             StorageFile file = await fop.PickSingleFileAsync();
             if(file != null)
             {
-               // $"/Assets/CoverArt/{genre}/{name}.jpg";
-                MusicFileName.Text = file.Name;
-                SelectedMusicFile = file;
+                try
+                {
+                    // $"/Assets/CoverArt/{genre}/{name}.jpg";
+                    MusicFileName.Text = file.Name;
+                    SelectedMusicFile = file;
 
-                // Get the path to the app's Assets folder.
+                    // Get the path to the app's Assets folder.
 
-                /* string songFolderpath = root + @"\Assets\SongFiles";
-                 StorageFolder localSongFolder = await StorageFolder.GetFolderFromPathAsync(songFolderpath);
+                    /* string songFolderpath = root + @"\Assets\SongFiles";
+                     StorageFolder localSongFolder = await StorageFolder.GetFolderFromPathAsync(songFolderpath);
 
-                 StorageFile newFile = await file.CopyAsync(localSongFolder,file.Name,NameCollisionOption.ReplaceExisting);
+                     StorageFile newFile = await file.CopyAsync(localSongFolder,file.Name,NameCollisionOption.ReplaceExisting);
 
-                StorageFolder assets = await Package.Current.InstalledLocation.GetFolderAsync($"Assets/SongFiles/{genre}");
-                await file.CopyAsync(assets);*/
+                    StorageFolder assets = await Package.Current.InstalledLocation.GetFolderAsync($"Assets/SongFiles/{genre}");
+                    await file.CopyAsync(assets);*/
 
 
-                StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-                StorageFolder assetsFolder = await appInstalledFolder.GetFolderAsync($"/Assets/SongFiles/{genre}");
-                await file.CopyAsync(assetsFolder);
+                    StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+                    StorageFolder assetsFolder = await appInstalledFolder.GetFolderAsync($"/Assets/SongFiles/{genre}");
+                    await file.CopyAsync(assetsFolder);
+                }catch(Exception error)
+                {
+                    //display error message to user and go back to albums page
+                    var messageDialog = new MessageDialog(error.Message);
+                    messageDialog.Commands.Add(new UICommand("OK"));
+                    await messageDialog.ShowAsync();
+                }
+               
 
             }
             else
@@ -90,17 +101,27 @@ namespace FirstAssignment
             StorageFile file = await fop.PickSingleFileAsync();
             if (file != null)
             {
-                CoverArtName.Text = file.Name;
+                try
+                {
+                    CoverArtName.Text = file.Name;
 
 
-                // Get the path to the app's Assets CoverArt folder
-                /* string coverArtFolderpath = root + @"\Assets\CoverArt";
-                 StorageFolder localCoverArtFolder = await StorageFolder.GetFolderFromPathAsync(coverArtFolderpath);
+                    // Get the path to the app's Assets CoverArt folder
+                    /* string coverArtFolderpath = root + @"\Assets\CoverArt";
+                     StorageFolder localCoverArtFolder = await StorageFolder.GetFolderFromPathAsync(coverArtFolderpath);
 
-                 StorageFile newFile = await file.CopyAsync(localCoverArtFolder,file.Name,NameCollisionOption.ReplaceExisting);*/
+                     StorageFile newFile = await file.CopyAsync(localCoverArtFolder,file.Name,NameCollisionOption.ReplaceExisting);*/
 
-                StorageFolder assets = await Package.Current.InstalledLocation.GetFolderAsync($"Assets/CoverArt/{genre}");
-                await file.CopyAsync(assets);
+                    StorageFolder assets = await Package.Current.InstalledLocation.GetFolderAsync($"Assets/CoverArt/{genre}");
+                    await file.CopyAsync(assets);
+                }
+                catch(Exception error)
+                {
+                    var messageDialog = new MessageDialog(error.Message);
+                    messageDialog.Commands.Add(new UICommand("OK"));
+                    await messageDialog.ShowAsync();
+                }
+                
             }
             else
             {
